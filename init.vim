@@ -8,11 +8,13 @@ Plug 'slugbyte/lackluster.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+" Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'maxmx03/fluoromachine.nvim'
 call plug#end()
 
 let g:ctrlp_custom_ignore = '\v[\/]((\.git)|node_modules|build|dist)$'
@@ -25,9 +27,10 @@ set shiftwidth=4 smarttab expandtab tabstop=4
 :luafile ~/.config/nvim/plugins/nvim-tree.lua
 :luafile ~/.config/nvim/plugins/keys.lua
 :luafile ~/.config/nvim/plugins/eslint.lua
-:luafile ~/.config/nvim/plugins/cmp.lua
 :luafile ~/.config/nvim/plugins/lua.lua
 :luafile ~/.config/nvim/plugins/go.lua
+:luafile ~/.config/nvim/plugins/snip.lua
+:luafile ~/.config/nvim/plugins/cmp.lua
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -47,6 +50,7 @@ endif
 
 "colorscheme gruvbox
 :luafile ~/.config/nvim/plugins/kanagawa.lua
+":luafile ~/.config/nvim/plugins/fluoromachine.lua
 "colorscheme lackluster-hack
 
 :noremap Y yy

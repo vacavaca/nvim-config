@@ -21,7 +21,8 @@ ts.setup {
     "css",
     "html",
     "lua",
-    "go"
+    "go",
+    "ledger"
   },
   autotag = {
     enable = true,
