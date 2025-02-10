@@ -27,8 +27,8 @@ set shiftwidth=4 smarttab expandtab tabstop=4
 :luafile ~/.config/nvim/plugins/nvim-tree.lua
 :luafile ~/.config/nvim/plugins/keys.lua
 :luafile ~/.config/nvim/plugins/eslint.lua
-:luafile ~/.config/nvim/plugins/lua.lua
-:luafile ~/.config/nvim/plugins/go.lua
+" :luafile ~/.config/nvim/plugins/lua.lua
+" :luafile ~/.config/nvim/plugins/go.lua
 :luafile ~/.config/nvim/plugins/snip.lua
 :luafile ~/.config/nvim/plugins/cmp.lua
 
@@ -51,7 +51,7 @@ endif
 "colorscheme gruvbox
 :luafile ~/.config/nvim/plugins/kanagawa.lua
 ":luafile ~/.config/nvim/plugins/fluoromachine.lua
-"colorscheme lackluster-hack
+" colorscheme lackluster-hack
 
 :noremap Y yy
 cnoreabbrev W w

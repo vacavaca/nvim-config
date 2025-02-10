@@ -13,9 +13,9 @@ require('kanagawa').setup({
         palette = {},
         theme = { wave = {}, lotus = {}, dragon = {
             ui = {
-                bg = '#191919',
-                bg_m3 = '#191919',
-                fg_dim = '#827e6a'
+                -- bg = '#191919',
+                -- bg_m3 = '#191919',
+                -- fg_dim = '#827e6a'
             }
         }, all = {} },
     },
