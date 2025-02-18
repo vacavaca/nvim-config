@@ -20,12 +20,34 @@ local on_attach = function(client, bufnr)
 
 end
 
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  root_dir = function (path) 
+    local git = util.root_pattern('.git')(path)
+    local deno = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")(path)
+    if git ~= nil and deno ~= nil then
+        return git
+    end
+
+    return nil
+  end
+}
+
 -- TypeScript
 nvim_lsp.ts_ls.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
-  root_dir = util.root_pattern('.git')
+  single_file_support = false,
+  root_dir = function(path)
+        local git = util.root_pattern('.git')(path)
+        local pkg = util.root_pattern('package.json')(path)
+        if git ~= nil and pkg ~= nil then
+            return git
+        end
+
+        return nil
+  end
 }
 
 -- Use LspAttach autocommand to only map the following keys
