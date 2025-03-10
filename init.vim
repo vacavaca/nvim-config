@@ -15,6 +15,10 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'maxmx03/fluoromachine.nvim'
+Plug 'dgox16/oldworld.nvim'
+Plug 'slugbyte/lackluster.nvim'
+Plug 'ramojus/mellifluous.nvim'
+Plug 'mellow-theme/mellow.nvim'
 call plug#end()
 
 let g:ctrlp_custom_ignore = '\v[\/]((\.git)|node_modules|build|dist)$'
@@ -49,9 +53,23 @@ if (empty($TMUX) && getenv('TERM_PROGRAM') != 'Apple_Terminal')
 endif
 
 "colorscheme gruvbox
-:luafile ~/.config/nvim/plugins/kanagawa.lua
+" :luafile ~/.config/nvim/plugins/kanagawa.lua
 ":luafile ~/.config/nvim/plugins/fluoromachine.lua
 " colorscheme lackluster-hack
+
+" :luafile ~/.config/nvim/plugins/oldworld.lua
+" colorscheme oldworld
+
+let g:mellow_bold_keywords = 1
+let g:mellow_bold_functions = 1
+" let g:mellow_bold_variables = 1
+let g:mellow_transparent = 1
+colorscheme mellow
+
+" :luafile ~/.config/nvim/plugins/mellifluous.lua
+" colorscheme mellifluous
+
+" colorscheme lackluster-mint
 
 :noremap Y yy
 cnoreabbrev W w
