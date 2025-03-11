@@ -15,10 +15,9 @@ local on_attach = function(client, bufnr)
 
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
   end
-
 end
+
 
 nvim_lsp.denols.setup {
   on_attach = on_attach,
@@ -35,8 +34,17 @@ nvim_lsp.denols.setup {
 
 -- TypeScript
 nvim_lsp.ts_ls.setup {
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = '/usr/local/lib/node_modules/@vue/typescript-plugin',
+        languages = { 'vue' },
+      },
+    },
+  },
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "vue", "javascript", "javascriptreact" },
   cmd = { "typescript-language-server", "--stdio" },
   single_file_support = false,
   root_dir = function(path)
@@ -46,7 +54,19 @@ nvim_lsp.ts_ls.setup {
             return git
         end
 
-        return nil
+        if git ~= nil then return git else return pkg end
+  end
+}
+
+nvim_lsp.volar.setup {
+  root_dir = function(path)
+        local git = util.root_pattern('.git')(path)
+        local pkg = util.root_pattern('package.json')(path)
+        if git ~= nil and pkg ~= nil then
+            return git
+        end
+
+        if git ~= nil then return git else return pkg end
   end
 }
 
